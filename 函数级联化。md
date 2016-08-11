@@ -1,0 +1,30 @@
+JavaScript级联函数，级联函数也叫链式函数，方法链一般适合对一个对象进行连续操作(集中在一句代码)。
+一定程度上可以减少代码量，缺点是它占用了函数的返回值。
+
+JQuery里一个很大的亮点就是它支持链式写法，调用起来非常方便：
+其实实现起来非常简单 —— 确保每个调用的方法尾部均返回自身即可。
+
+```javascript
+  function Person(){
+    this.face="";
+    this.mouth="";
+    this.eyes="";
+  }
+  Person.prototype={
+    setFace:function(){
+      this.face="红扑扑";
+      return this;
+    },
+    setMouth:function(){
+      this.mouth="大嘴";
+      return this;
+    },
+     setEyes:function(){
+      this.eyes="小眼";
+      return this;
+    }
+  };
+  var person=new Person();
+  person.setFace().setMouth().setEyes();
+  console.log(person);
+```
