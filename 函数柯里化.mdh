@@ -1,0 +1,14 @@
+函数柯里化用于创建已经设置好了一个或多个参数的函数，基本方法：使用一个闭包返回一个函数，当函数被调用时，返回的函数还要设置一些传入的参数。
+
+柯里化函数通常由以下步骤动态创建：调用另一个函数并为它传入要柯里化的函数和必要的参数。
+```javascript
+  function curry(fn){
+    var args=Array.prototype.slice.call(arguments,1);
+    return function(){
+      var innerArgs=Array.prototype.slice.call(arguments);
+      var finalArgs=args.concat(innerArgs);
+      return fn.apply(null,finnalArgs);
+    }
+  }
+  
+```
